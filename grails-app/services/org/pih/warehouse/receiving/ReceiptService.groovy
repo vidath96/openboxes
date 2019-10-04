@@ -9,6 +9,7 @@
  **/
 package org.pih.warehouse.receiving
 
+import grails.core.GrailsApplication
 import grails.validation.ValidationException
 import org.apache.commons.validator.EmailValidator
 import org.pih.warehouse.api.PartialReceipt
@@ -37,7 +38,7 @@ class ReceiptService {
     def inventoryService
     def locationService
     def identifierService
-    def grailsApplication
+    GrailsApplication grailsApplication
     def notificationService
 
     PartialReceipt getPartialReceipt(String id, String stepNumber) {
