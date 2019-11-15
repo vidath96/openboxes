@@ -382,7 +382,7 @@ class StockMovementApiController {
     }
 
     Boolean isNull(Object objectValue) {
-        return objectValue == JSONObject.NULL || objectValue == null || objectValue?.equals("")
+        return objectValue == null || objectValue?.equals("")
     }
 
     List<StockMovementItem> createLineItemsFromJson(StockMovement stockMovement, List lineItems) {
