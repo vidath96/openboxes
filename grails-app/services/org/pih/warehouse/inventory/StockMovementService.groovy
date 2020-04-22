@@ -75,8 +75,6 @@ class StockMovementService {
     def dataService
     def forecastingService
 
-    boolean transactional = true
-
     GrailsApplication grailsApplication
 
     def createStockMovement(StockMovement stockMovement) {
