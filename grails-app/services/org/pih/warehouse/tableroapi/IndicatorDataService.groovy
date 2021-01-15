@@ -23,7 +23,7 @@ import org.pih.warehouse.inventory.TransactionEntry
 import org.pih.warehouse.inventory.TransactionCode
 import org.pih.warehouse.core.Location
 import org.joda.time.LocalDate
-import org.pih.warehouse.util.LocalizationUtil
+import org.pih.warehouse.LocalizationUtil
 
 @Transactional
 class IndicatorDataService {

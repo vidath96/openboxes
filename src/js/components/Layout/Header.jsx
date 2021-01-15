@@ -27,7 +27,7 @@ class Header extends Component {
   }
 
   logoutImpersonatedUser = () => {
-    const url = '/openboxes/api/logout';
+    const url = '/api/logout';
 
     apiClient.post(url)
       .then(() => {

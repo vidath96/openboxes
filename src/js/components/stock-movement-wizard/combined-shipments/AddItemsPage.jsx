@@ -614,7 +614,7 @@ class AddItemsPage extends Component {
     if (!errors.length) {
       this.saveRequisitionItemsInCurrentStep(formValues.lineItems)
         .then(() => {
-          window.location = `/openboxes/stockMovement/show/${formValues.stockMovementId}`;
+          window.location = `/stockMovement/show/${formValues.stockMovementId}`;
         });
     } else {
       confirmAlert({
@@ -626,7 +626,7 @@ class AddItemsPage extends Component {
         buttons: [
           {
             label: this.props.translate('react.default.yes.label', 'Yes'),
-            onClick: () => { window.location = `/openboxes/stockMovement/show/${formValues.stockMovementId}`; },
+            onClick: () => { window.location = `/stockMovement/show/${formValues.stockMovementId}`; },
           },
           {
             label: this.props.translate('react.default.no.label', 'No'),
@@ -658,7 +658,7 @@ class AddItemsPage extends Component {
    * @public
    */
   removeItem(itemId) {
-    const removeItemsUrl = `/openboxes/api/stockMovementItems/${itemId}/removeItem`;
+    const removeItemsUrl = `/api/stockMovementItems/${itemId}/removeItem`;
 
     return apiClient.delete(removeItemsUrl)
       .catch(() => {
@@ -752,7 +752,7 @@ class AddItemsPage extends Component {
       },
     };
 
-    const url = `/openboxes/api/combinedShipmentItems/importTemplate/${stockMovementId}`;
+    const url = `/api/combinedShipmentItems/importTemplate/${stockMovementId}`;
 
     return apiClient.post(url, formData, config)
       .then(() => {
@@ -772,7 +772,7 @@ class AddItemsPage extends Component {
   }
 
   exportTemplate(blank) {
-    const url = `/openboxes/api/combinedShipmentItems/exportTemplate?vendor=${this.state.values.origin.id}&destination=${this.state.values.destination.id}${blank ? '&blank=true' : ''}`;
+    const url = `/api/combinedShipmentItems/exportTemplate?vendor=${this.state.values.origin.id}&destination=${this.state.values.destination.id}${blank ? '&blank=true' : ''}`;
     apiClient.get(url, { responseType: 'blob' })
       .then((response) => {
         fileDownload(response.data, 'Order-items-template.csv', 'text/csv');
